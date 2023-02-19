@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:uju/home/food_page_body.dart';
+import 'package:uju/pages/home/food_page_body.dart';
 import 'package:uju/utils/colors.dart';
 import 'package:uju/utils/dimensions.dart';
-import 'package:uju/utils/widgets/big_text.dart';
-import 'package:uju/utils/widgets/small_text.dart';
+import 'package:uju/widgets/big_text.dart';
+import 'package:uju/widgets/small_text.dart';
 
 
 class MainFoodPage extends StatefulWidget {

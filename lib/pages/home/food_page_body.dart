@@ -8,11 +8,13 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:uju/utils/colors.dart';
 import 'package:uju/utils/dimensions.dart';
-import 'package:uju/utils/widgets/big_text.dart';
-import 'package:uju/utils/widgets/icon_and_text_widget.dart';
-import 'package:uju/utils/widgets/small_text.dart'; 
+import 'package:uju/widgets/app_column.dart';
+import 'package:uju/widgets/big_text.dart';
+import 'package:uju/widgets/icon_and_text_widget.dart';
+import 'package:uju/widgets/small_text.dart'; 
 import 'package:dots_indicator/dots_indicator.dart';
-import 'package:flutter/src/widgets/basic.dart';
+import 'package:flutter/src/widgets/basic.dart'; 
+import 'package:uju/widgets/app_column.dart';
 
 class FoodPageBody extends StatefulWidget {
   const FoodPageBody({super.key});
@@ -90,13 +92,10 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               ],
             ),
           ),
-
-
-          Container( 
-            height: 900, 
-            child: ListView.builder(
+      
+             ListView.builder(
               physics: NeverScrollableScrollPhysics(),
-              // shrinkWrap: true,
+              shrinkWrap: true,
             itemCount: 10,
             itemBuilder: (context, index) {
             return Container(
@@ -105,8 +104,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 children: [
                   //images and their roles
                   Container(
-                    width: 120,
-                    height: 120,
+                    width: Dimensions.listViewImgSize,
+                    height: Dimensions.listViewImgSize,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(Dimensions.radius20), 
                       color: Colors.white38, 
@@ -121,8 +120,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   //text containers 
                 Expanded( 
                   child: Container(
-                    height: 100, 
-                  
+                    height: Dimensions.listViewTextContSize, 
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
                         topRight: Radius.circular(Dimensions.radius20), 
@@ -133,8 +131,29 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                     child: Padding(
                       padding: EdgeInsets.only(left: Dimensions.width10),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          BigText(text: "Nutritious Cow Legs")
+                          BigText(text: "Nutritious Cow Legs Just For You"), 
+                          SizedBox(height: Dimensions.height10,), 
+                          SmallText(text: "With very spicy pepper soup"), 
+                          SizedBox(height: Dimensions.height10,), 
+                          Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        IconAndTextWidget(icon: Icons.circle_sharp, 
+                        text: "Normal", 
+                        iconColor: AppColors.iconColor1), 
+
+                        IconAndTextWidget(icon: Icons.location_on, 
+                        text: "1.7km", 
+                        iconColor: AppColors.mainColor), 
+
+                        IconAndTextWidget(icon: Icons.access_time_rounded, 
+                        text: "30min", 
+                        iconColor: AppColors.iconColor2)
+                      ],
+                    )
                         ],
                       ),
                     ),
@@ -147,7 +166,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             
           }
           ),
-          )
+          
           
 
             //list of our popular foods and images
@@ -226,43 +245,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             ),
             child: Container(
               padding: EdgeInsets.only(top: Dimensions.height15, left: 15, right: 15),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  BigText(text: "Owho Soup & Starch"), 
-                  SizedBox(height: Dimensions.height10,), 
-                  Row(
-                    children: [
-                      Wrap(
-                        children: List.generate(5, (index) {return Icon(Icons.star, color: AppColors.mainColor, size: 15,);}),
-                      ), 
-                      SizedBox(width: 10,), 
-                      SmallText(text: "4.5"), 
-                      SizedBox(width: 10,), 
-                      SmallText(text: "1208"), 
-                      SizedBox(width: 10,), 
-                      SmallText(text: "Comments")
-                    ],
-                  ),
-                SizedBox(height: Dimensions.height20,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    IconAndTextWidget(icon: Icons.circle_sharp, 
-                    text: "Normal", 
-                    iconColor: AppColors.iconColor1), 
-
-                    IconAndTextWidget(icon: Icons.location_on, 
-                    text: "1.7km", 
-                    iconColor: AppColors.mainColor), 
-
-                    IconAndTextWidget(icon: Icons.access_time_rounded, 
-                    text: "30min", 
-                    iconColor: AppColors.iconColor2)
-                  ],
-                )
-                ],
-              ),
+              child: AppColumn(text: "Owho Soup and Starch"), 
             ),
             
           )
