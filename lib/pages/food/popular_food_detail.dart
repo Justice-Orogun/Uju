@@ -4,6 +4,7 @@ import 'package:uju/utils/dimensions.dart';
 import 'package:uju/widgets/app_column.dart';
 import 'package:uju/widgets/app_icon.dart';
 import 'package:uju/widgets/big_text.dart';
+import 'package:uju/widgets/expandable_text_widget.dart';
 import 'package:uju/widgets/small_text.dart';
 import 'package:uju/widgets/icon_and_text_widget.dart';
 import 'package:uju/utils/colors.dart';
@@ -34,7 +35,6 @@ class PopularFoodDetail extends StatelessWidget {
               ),
 
               )), 
-            
 
             //icons widget for back and shopping cart
           Positioned(
@@ -69,7 +69,9 @@ class PopularFoodDetail extends StatelessWidget {
                 children: [
                   AppColumn(text: "Owho Soup and Starch"),
                   SizedBox(height: Dimensions.height20,),
-                  BigText(text: "Introduce")
+                  BigText(text: "Introduce"), 
+                  SizedBox(height: Dimensions.height20,),
+                  Expanded(child:SingleChildScrollView (child: ExpandableTextWidget(text: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.")))
                 ],
               ),
 

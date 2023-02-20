@@ -17,6 +17,7 @@ static double height45 = screenHeight/18.76;
 
 
 //font size for text
+static double font16 = screenHeight/52.75; 
 static double font20 = screenHeight/42.2; 
 static double font26 = screenHeight/32.46; 
 

@@ -166,12 +166,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             
           }
           ),
-          
-          
-
-            //list of our popular foods and images
-           
-           
+        
+            //list of our popular foods and images    
       ],
     );
   }
